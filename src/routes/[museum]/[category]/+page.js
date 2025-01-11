@@ -1,5 +1,5 @@
-javascript;
 export function load({ data }) {
+	
 	return {
 		...data,
 		taggedImages: data.taggedImages || [],
