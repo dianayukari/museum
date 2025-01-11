@@ -1,39 +1,29 @@
 import { readdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
+function getImagesFromPath(path) {
+	if (existsSync(path)) {
+		return readdirSync(path)
+			.filter((file) => file.match(/\.(jpg|jpeg|png|gif)$/i))
+			.map((file) => path.split('static')[1] + '/' + file);
+	}
+	return [];
+}
+
 export function load({ params }) {
 	const { museum, category } = params;
+	const basePath = join(process.cwd(), 'static', 'images', museum, category);
 
-	const taggedPath = join(process.cwd(), 'static', 'images', museum, category, 'tagged');
-	const postedPath = join(process.cwd(), 'static', 'images', museum, category, 'posted');
+	const taggedPath = join(basePath, 'tagged');
+	const postedPath = join(basePath, 'posted');
 
-	let taggedImages = [];
-	let postedImages = [];
+	const taggedImages = getImagesFromPath(taggedPath);
+	const postedImages = getImagesFromPath(postedPath);
 
-	try {
-		if (existsSync(taggedPath)) {
-			taggedImages = readdirSync(taggedPath).map(
-				(file) => `/images/${museum}/${category}/tagged/${file}`
-			);
-		}
-
-		if (existsSync(postedPath)) {
-			postedImages = readdirSync(postedPath).map(
-				(file) => `/images/${museum}/${category}/posted/${file}`
-			);
-		}
-
-		return {
-			museum,
-			category,
-			taggedImages,
-			postedImages
-		};
-	} catch (error) {
-		console.error(`Error reading directories:`, error);
-		return {
-			status: 404,
-			error: new Error(`Category not found: ${category}`)
-		};
-	}
+	return {
+		museum,
+		category,
+		taggedImages,
+		postedImages
+	};
 }

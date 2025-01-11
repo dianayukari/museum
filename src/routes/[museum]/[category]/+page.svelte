@@ -1,26 +1,36 @@
 <script>
-  import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
+	export let data;
 
-  export let data;
-  let taggedImages = [];
-  let postedImages = [];
-  let error = null;
+	$: ({ museum, category, taggedImages, postedImages } = data);
 
-  onMount(() => {
-    try {
-      taggedImages = data.taggedImages || [];
-      postedImages = data.postedImages || [];
-    } catch (e) {
-      error = e.message;
-      console.error('Error loading images:', e);
-    }
-  });
-
-  // ... rest of your script
+	function formatCategory(cat) {
+		return cat.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+	}
 </script>
 
-{#if error}
-  <p>Error: {error}</p>
-{:else}
-  <!-- Your existing template code -->
-{/if}
+<h1>{museum}</h1>
+<h2>{formatCategory(category)}</h2>
+
+<div class="gallery-container">
+	<div class="gallery">
+		<h3>Tagged Images</h3>
+		{#if taggedImages.length > 0}
+			{#each taggedImages as image}
+				<img src={image} alt="tagged image" loading="lazy" />
+			{/each}
+		{:else}
+			<p>No tagged images</p>
+		{/if}
+	</div>
+	<div class="gallery">
+		<h3>Posted Images</h3>
+		{#if postedImages.length > 0}
+			{#each postedImages as image}
+				<img src={image} alt="posted image" loading="lazy" />
+			{/each}
+		{:else}
+			<p>No posted images</p>
+		{/if}
+	</div>
+</div>
