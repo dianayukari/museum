@@ -1,0 +1,21 @@
+{
+	"categories": [
+		"art-gallery",
+		"art-not-gallery",
+		"no-art-gallery",
+		"no-art-not-gallery",
+		"people-art-gallery",
+		"people-art-not-gallery",
+		"people-no-art-not-gallery",
+		"text",
+		"no-cat"
+	],
+	"museums": [
+		"tate",
+		"centrepompidou",
+		"themuseumofmodernart",
+		"mplusmuseum",
+		"mca_australia",
+		"institutotomieohtake"
+	]
+}
