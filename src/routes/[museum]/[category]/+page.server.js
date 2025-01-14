@@ -60,8 +60,6 @@ export function load({ params }) {
 	const sortedTaggedImages = sortImages(taggedImages, 'tagged');
 	const sortedPostedImages = sortImages(postedImages, 'posted');
 
-    console.log(sortedTaggedImages);
-
 	return {
 		museum,
 		category,

@@ -1,5 +1,5 @@
 export const categoryMap = {
-	'art-gallery': 'Pictures of art in gallery serring',
+	'art-gallery': 'Pictures of art in gallery setting',
 	'art-not-gallery': 'Pictures art outside gallery',
 	'no-art-gallery': 'Pictures of gallery without art',
 	'no-art-not-gallery': 'Pictures of non-gallery without art',
