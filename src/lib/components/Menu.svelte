@@ -1,47 +1,52 @@
 <script></script>
 
 <div class="menu">
-  <ul>
-    <li class="name"><h1><a href="/"> Project Name</a></h1></li>
-    <li class="protocol"><a href="https://docs.google.com/document/d/179_LOzVvq4IH9WjDdiJvk2bT6fvvuLKxquMQifcGMxY/edit?tab=t.0"> Research Protocol</a></li>
-  </ul>
-  <hr>
+  <div class="left-spacer"></div>
+  <h1 class="title"><a href="/"> The social museum</a></h1>
+  <a class="protocol" href="https://docs.google.com/document/d/179_LOzVvq4IH9WjDdiJvk2bT6fvvuLKxquMQifcGMxY/edit?tab=t.0"> Research Protocol</a>
 </div>
+<hr>
+
 
 <style>
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+h1 {
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem;
+  flex-wrap: nowrap;
+}
+
+.left-spacer {
+  flex: 1;
+}
+
+.title {
+flex: 2;  
+text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+}
 
 .protocol {
-  position: absolute;
-  right: 5%;
-}
-
-li {
-  display: inline;
-  padding: 10px;
-  cursor: pointer;
-}
-
-a {
-  text-decoration: none;
-  color: black;
+  flex: 1;
+  font-size: 14px;
+  text-align: right;
 }
 
 hr {
   margin: 0;
   border: none;
   height: 1.5px;
-  color:black;
-  background-color: black;
+  background-color: #1C1C1A;
 }
 
 </style>
