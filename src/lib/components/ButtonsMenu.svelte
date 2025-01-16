@@ -118,6 +118,7 @@
 				</button>
                 </div>
                 <div class="subcategoriesContainer">
+				<span class="arrow">&#8594;</span>
 				<div class="subcategories">
 					{#each subcategory as sub}
 						<button
@@ -154,6 +155,7 @@
 
     .subcategoriesContainer {
         display: flex;
+		align-items: center;
     }
 
     .break {
@@ -167,14 +169,10 @@
 		padding: 8px 10px;
         background-color: #FCFCFA;
         border: solid 2px #1A068A;
-        margin: 20px 8px;
+        margin: 6px;
         color: #1A068A;
         border-radius: 3px;
 	}
-
-    .category button {
-        margin-right: 30px;
-    }
 
 	button.active {
 		background-color: #1A068A;
@@ -186,5 +184,11 @@
         color: #C7C7C7;
         border-color: #C7C7C7;
     }
+
+	.arrow {
+		font-size: 18px;
+		margin: 0 10px;
+		color: #1A068A;
+	}
 
 </style>

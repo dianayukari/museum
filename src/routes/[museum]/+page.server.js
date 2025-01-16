@@ -17,11 +17,6 @@ export function load({ params }) {
 		return orderA - orderB;
 	}
 
-	const basePath = join('https://storage.googleapis.com/social-museum/', museum);
-
-	const taggedPath = join(basePath, 'tagged');
-	const postedPath = join(basePath, 'posted');
-
 	const sortedTaggedImages = museumImageData.filter((d) => d.type == 'tagged').sort(sortByOrder);
 	const sortedPostedImages = museumImageData.filter((d) => d.type == 'posted').sort(sortByOrder);
 

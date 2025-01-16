@@ -1,12 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
-	import {csvParse} from 'd3-dsv';
+	import { csvParse } from 'd3-dsv';
 	import { get } from 'svelte/store';
 	import Tooltip from '$lib/components/Tooltip.svelte';
 	import ButtonsMenu from '$lib/components/ButtonsMenu.svelte';
 
 	export let data;
-	export let hoverData;
 	let hoverInfo = [];
 	let isHovered = false;
 
@@ -27,12 +26,12 @@
 	let categories = [
 		{
 			category: 'Are there people?',
-			subcategory: ['people with artwork'],
-			subcategory2: ['people alone', 'more than one person']
+			subcategory: ['with artwork?'],
+			subcategory2: ['person alone?', 'multiple people?']
 		},
 		{
-			category: "No people at all?",
-			subcategory: ['no people in gallery', 'no people outside'],
+			category: 'No people at all?',
+			subcategory: ['Indoor gallery?', 'Outdoor setting?'],
 			subcategory2: []
 		}
 	];
@@ -68,16 +67,16 @@
 		}
 	}
 
-  function isHighlighted(image) {
-    if (!selectedCategory) return false;
-    if (selectedSubcategory) {
-      return image.category === selectedCategory && image.subcategory === selectedSubcategory;
-    }
-	if (selectedSubcategory2) {
-	  return image.category === selectedCategory && image.subcategory2 === selectedSubcategory2;
+	function isHighlighted(image) {
+		if (!selectedCategory) return false;
+		if (selectedSubcategory) {
+			return image.category === selectedCategory && image.subcategory === selectedSubcategory;
+		}
+		if (selectedSubcategory2) {
+			return image.category === selectedCategory && image.subcategory2 === selectedSubcategory2;
+		}
+		return image.category === selectedCategory;
 	}
-    return image.category === selectedCategory;
-  }
 
 	onMount(async () => {
 		loadMoreImages();
@@ -92,29 +91,32 @@
 			(!selectedCategory || image.category === selectedCategory) &&
 			(!selectedSubcategory || image.subcategory === selectedSubcategory) &&
 			(!selectedSubcategory2 || image.subcategory2 === selectedSubcategory2)
-
-		);
+	);
 
 	$: filteredPostedImages = postedImages.filter(
 		(image) =>
 			(!selectedCategory || image.category === selectedCategory) &&
 			(!selectedSubcategory || image.subcategory === selectedSubcategory) &&
 			(!selectedSubcategory2 || image.subcategory2 === selectedSubcategory2)
-
-		);
+	);
 
 	$: allImages = [...filteredTaggedImages, ...filteredPostedImages];
 
 	$: imageCounts = allImages.reduce((counts, image) => {
 		counts[image.category] = (counts[image.category] || 0) + 1;
-		counts[`${image.category}-${image.subcategory}`] = (counts[`${image.category}-${image.subcategory}`] || 0) + 1;
-		counts[`${image.category}-${image.subcategory2}`] = (counts[`${image.category}-${image.subcategory2}`] || 0) + 1;
+		counts[`${image.category}-${image.subcategory}`] =
+			(counts[`${image.category}-${image.subcategory}`] || 0) + 1;
+		counts[`${image.category}-${image.subcategory2}`] =
+			(counts[`${image.category}-${image.subcategory2}`] || 0) + 1;
 		return counts;
 	}, {});
 
 </script>
 
 <svelte:window on:scroll={handleScroll} />
+<div class="top-container">
+<p class="museum-name"><span class="back-arrow"><a href="/">&#10229;</a></span>@{museum}</p>
+<p class="title-page">What did they post?</p>
 
 <ButtonsMenu
 	{categories}
@@ -125,11 +127,11 @@
 	bind:initialSelectedSubcategory2={selectedSubcategory2}
 />
 
-<h1>{museum}</h1>
+</div>
 
 <div class="gallery-container">
 	<div class="gallery">
-		<h3>Posted Images</h3>
+		<p class="gallery-title">Posted by the museum</p>
 		{#if displayedPostedImages.length > 0}
 			{#each displayedPostedImages as image}
 				<img
@@ -151,7 +153,7 @@
 	</div>
 
 	<div class="gallery">
-		<h3>Tagged Images</h3>
+		<p class="gallery-title">Tagged the museum</p>
 		{#if displayedTaggedImages.length > 0}
 			{#each displayedTaggedImages as image}
 				<img
@@ -182,9 +184,37 @@
 {/if}
 
 <style>
+
+	.top-container {
+		margin: 0 50px;
+	}
+
+	.back-arrow {
+		font-size: 30px;
+		margin: 0 10px;
+	}
+
+	.museum-name {
+		font-family: 'InputMonoCompressed';
+		font-weight: bold;
+		text-align: left;
+	}
+
+	.title-page {
+		font-family: 'InputMonoCompressed';
+		font-weight: bold;
+		text-align: left;
+		font-size: 24px;
+	}
+
 	.gallery-container {
 		display: flex;
 		justify-content: space-around;
+	}
+
+	.gallery-title {
+		text-align: center;
+		font-size: 16px
 	}
 
 	.gallery {
@@ -203,6 +233,7 @@
 	}
 
 	img.highlighted {
-		border: 3px solid #4caf50;
+		border: 4px solid #1A068A;
 	}
+
 </style>

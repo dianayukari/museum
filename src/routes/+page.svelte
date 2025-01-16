@@ -3,19 +3,18 @@
 	import { onMount } from 'svelte';
 
 	let categoriesList = [];
-	// $:console.log(museums);
 </script>
 
 <div class="mainContainer">
 	<h1>How do museums and people portray the space in social media?</h1>
 	<div class="museum-list">
 		{#each museums as museum}
-			<button class="museum">
-				<a href="/{museum.id}">
+			<a href="/{museum.id}">
+				<button class="museum">
 					<p class="museum-name">{museum.name}</p>
 					<p class="location">{museum.location}</p>
-				</a>
-			</button>
+				</button>
+			</a>
 		{/each}
 	</div>
 </div>
@@ -32,6 +31,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		margin-bottom: 50px;
 	}
 
 	.museum-list {
@@ -45,4 +45,32 @@
 	.museum {
 		margin: 1rem;
 	}
+
+	.museum-name {
+		margin-bottom: 3px;
+	}
+
+	.location {
+		font-size: 12px;
+		margin-top: 0;
+	}
+
+	button {
+		font-family: 'InputMono';
+		font-size: 16px;
+		padding: 0 12px;
+		background-color: #fcfcfa;
+		border: solid 2px #101010;
+		margin: 6px;
+		color: #101010;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+
+	button:hover {
+		border: solid 2px #1A068A;
+		color: #1A068A;
+	}
+	
+
 </style>

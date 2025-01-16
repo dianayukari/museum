@@ -6,10 +6,6 @@
 
 <slot></slot>
 
-<footer>
-    <p>footer</p>
-</footer>
-
 <style>
     
     @import '../global.css';
