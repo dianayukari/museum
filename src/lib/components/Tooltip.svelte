@@ -24,14 +24,20 @@
 
 <style>
 
+
+	@media (min-width:500px) {
+
   .tooltip {
     position: absolute;
+    padding: 6px 10px;
     top: 100%;
     left: 0;
-    background-color: white;
-    border: 1px solid black;
+    background-color: #E9E6FB;
+    border: none
     padding: 5px;
     z-index: 1000;
   }
+
+}
 
 </style>

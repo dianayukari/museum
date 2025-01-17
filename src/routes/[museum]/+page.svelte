@@ -21,7 +21,7 @@
 	let loading = false;
 	let x;
 	let y;
-	const imagesPerLoad = 15;
+	const imagesPerLoad = 30;
 
 	let categories = [
 		{
@@ -135,6 +135,7 @@
 		{#if displayedPostedImages.length > 0}
 			{#each displayedPostedImages as image}
 				<img
+					class="gallery-image"
 					src={image.src}
 					alt="posted image"
 					loading="lazy"
@@ -157,6 +158,7 @@
 		{#if displayedTaggedImages.length > 0}
 			{#each displayedTaggedImages as image}
 				<img
+					class="gallery-image"
 					src={image.src}
 					alt="tagged image"
 					loading="lazy"
@@ -235,5 +237,16 @@
 	img.highlighted {
 		border: 4px solid #1A068A;
 	}
+
+	@media (max-width:600px) {
+
+
+    img {
+		max-width: 55px;
+		max-height: 55px;
+	}
+
+
+}
 
 </style>
