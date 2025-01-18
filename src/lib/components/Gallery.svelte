@@ -81,7 +81,7 @@
 		}
 
         img {
-            max-width: 90px;
+            max-width: 80px;
 			margin: 2px;
         }
 

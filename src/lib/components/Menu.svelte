@@ -51,4 +51,21 @@ hr {
   background-color: #1C1C1A;
 }
 
+
+	@media (max-width:500px) {
+
+    .left-spacer{
+      display: none;
+    }
+
+    .menu {
+      flex-wrap: wrap;
+    }
+
+    .title {
+      text-align: left;
+    }
+
+  }
+
 </style>
