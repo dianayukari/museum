@@ -1,4 +1,3 @@
-<script></script>
 
 <div class="menu">
   <div class="left-spacer"></div>

@@ -1,14 +1,10 @@
 <script>
 	export let categories = [];
-	export let initialSelectedCategory = null;
-	export let initialSelectedSubcategory = null;
-	export let initialSelectedSubcategory2 = null;
+	export let selectedCategory = null;
+	export let selectedSubcategory = null;
+	export let selectedSubcategory2 = null;
 	export let imageCounts = {};
     export let currentPage = '';
-
-	let selectedCategory = initialSelectedCategory;
-	let selectedSubcategory = initialSelectedSubcategory;
-	let selectedSubcategory2 = initialSelectedSubcategory2;
 
 	const inactivePages = [
 		'tate',
@@ -88,18 +84,6 @@
 		return isInactivePage(currentPage) ||
         selectedCategory !== category ||
         imageCounts[`${category}-${subcategory2}`] === 0;
-	}
-
-	$: {
-		if (selectedCategory !== initialSelectedCategory) {
-			initialSelectedCategory = selectedCategory;
-		}
-		if (selectedSubcategory !== initialSelectedSubcategory) {
-			initialSelectedSubcategory = selectedSubcategory;
-		}
-		if (selectedSubcategory2 !== initialSelectedSubcategory2) {
-			initialSelectedSubcategory2 = selectedSubcategory2;
-		}
 	}
 
 </script>

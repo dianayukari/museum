@@ -2,12 +2,11 @@
 	import { onMount } from 'svelte';
 	import { csvParse } from 'd3-dsv';
 	import { get } from 'svelte/store';
-	import Tooltip from '$lib/components/Tooltip.svelte';
 	import ButtonsMenu from '$lib/components/ButtonsMenu.svelte';
+	import Gallery from '$lib/components/Gallery.svelte';
 
 	export let data;
-	let hoverInfo = [];
-	let isHovered = false;
+
 
 	$: ({ museum, taggedImages, postedImages } = data);
 
@@ -36,9 +35,6 @@
 		}
 	];
 
-	function handleImageClick(link) {
-		window.open(link, '_blank');
-	}
 
 	function loadMoreImages() {
 		if (loading) return;
@@ -67,17 +63,6 @@
 		}
 	}
 
-	function isHighlighted(image) {
-		if (!selectedCategory) return false;
-		if (selectedSubcategory) {
-			return image.category === selectedCategory && image.subcategory === selectedSubcategory;
-		}
-		if (selectedSubcategory2) {
-			return image.category === selectedCategory && image.subcategory2 === selectedSubcategory2;
-		}
-		return image.category === selectedCategory;
-	}
-
 	onMount(async () => {
 		loadMoreImages();
 
@@ -86,19 +71,14 @@
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
 
-	$: filteredTaggedImages = taggedImages.filter(
-		(image) =>
-			(!selectedCategory || image.category === selectedCategory) &&
+	function isImageInCategory(image) {
+		return (!selectedCategory || image.category === selectedCategory) &&
 			(!selectedSubcategory || image.subcategory === selectedSubcategory) &&
 			(!selectedSubcategory2 || image.subcategory2 === selectedSubcategory2)
-	);
+		}
 
-	$: filteredPostedImages = postedImages.filter(
-		(image) =>
-			(!selectedCategory || image.category === selectedCategory) &&
-			(!selectedSubcategory || image.subcategory === selectedSubcategory) &&
-			(!selectedSubcategory2 || image.subcategory2 === selectedSubcategory2)
-	);
+	$: filteredTaggedImages = taggedImages.filter(isImageInCategory);
+	$: filteredPostedImages = postedImages.filter(isImageInCategory);
 
 	$: allImages = [...filteredTaggedImages, ...filteredPostedImages];
 
@@ -122,63 +102,28 @@
 	{categories}
 	{imageCounts}
 	currentPage={museum}
-	bind:initialSelectedCategory={selectedCategory}
-	bind:initialSelectedSubcategory={selectedSubcategory}
-	bind:initialSelectedSubcategory2={selectedSubcategory2}
+	bind:selectedCategory
+	bind:selectedSubcategory
+	bind:selectedSubcategory2
 />
 
 </div>
 
 <div class="gallery-container">
-	<div class="gallery">
-		<p class="gallery-title">Posted by the museum</p>
-		{#if displayedPostedImages.length > 0}
-			{#each displayedPostedImages as image}
-				<img
-					class="gallery-image"
-					src={image.src}
-					alt="posted image"
-					loading="lazy"
-					class:highlighted={isHighlighted(image)}
-					on:click={() => handleImageClick(image.link)}
-					on:mouseover={() => {
-						hoverInfo = image.date;
-						isHovered = true;
-					}}
-					on:mouseleave={() => (isHovered = false)}
-				/>
-			{/each}
-		{:else}
-			<p>No posted images</p>
-		{/if}
-	</div>
-
-	<div class="gallery">
-		<p class="gallery-title">Tagged the museum</p>
-		{#if displayedTaggedImages.length > 0}
-			{#each displayedTaggedImages as image}
-				<img
-					class="gallery-image"
-					src={image.src}
-					alt="tagged image"
-					loading="lazy"
-					class:highlighted={isHighlighted(image)}
-					on:click={() => handleImageClick(image.link)}
-					on:mouseover={() => {
-						hoverInfo = image.date;
-						isHovered = true;
-					}}
-					on:mouseleave={() => (isHovered = false)}
-				/>
-			{/each}
-
-			{#if isHovered}
-				<Tooltip data={hoverInfo} />
-			{/if}
-		{:else}
-			<p>No tagged images</p>
-		{/if}
-	</div>
+		<Gallery
+		images={displayedPostedImages}
+		title="Posted by the museum"
+		{selectedCategory}
+		{selectedSubcategory}
+		{selectedSubcategory2}
+	/>
+	<Gallery
+		images={displayedTaggedImages}
+		title="Tagged the museum"
+		{selectedCategory}
+		{selectedSubcategory}
+		{selectedSubcategory2}
+	/>
 </div>
 
 {#if loading}
@@ -214,39 +159,11 @@
 		justify-content: space-around;
 	}
 
-	.gallery-title {
-		text-align: center;
-		font-size: 16px
-	}
-
-	.gallery {
-		width: 40%;
-	}
-
-	img {
-		max-width: 100px;
-		max-height: 100px;
-		margin: 5px;
-		cursor: pointer;
-	}
-
 	p {
 		text-align: center;
 	}
 
-	img.highlighted {
-		border: 4px solid #1A068A;
-	}
-
-	@media (max-width:600px) {
 
 
-    img {
-		max-width: 55px;
-		max-height: 55px;
-	}
-
-
-}
 
 </style>
