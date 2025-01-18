@@ -6,9 +6,11 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
+		appDir: 'app',
 		adapter: adapter(),
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/museum' : ''
+			base: process.env.NODE_ENV === 'production' ? '/museum' : '',
+			relative: false
 		}
 	}
 };

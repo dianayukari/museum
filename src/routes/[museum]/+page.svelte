@@ -4,7 +4,7 @@
 	import { get } from 'svelte/store';
 	import ButtonsMenu from '$lib/components/ButtonsMenu.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
-    import { base } from '$app/paths';
+	import { base } from '$app/paths';
 
 	export let data;
 

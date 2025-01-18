@@ -1,5 +1,5 @@
-<script lang="ts">
-    import { base } from '$app/paths';
+<script>
+  import { base } from '$app/paths';
 </script>
 
 <div class="menu">
