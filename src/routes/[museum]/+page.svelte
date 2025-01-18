@@ -4,6 +4,7 @@
 	import { get } from 'svelte/store';
 	import ButtonsMenu from '$lib/components/ButtonsMenu.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
+    import { base } from '$app/paths';
 
 	export let data;
 
@@ -95,7 +96,7 @@
 
 <svelte:window on:scroll={handleScroll} />
 <div class="top-container">
-<p class="museum-name"><span class="back-arrow"><a href="/">&#10229;</a></span>@{museum}</p>
+<p class="museum-name"><span class="back-arrow"><a href="{base}/">&#10229;</a></span>@{museum}</p>
 <p class="title-page">What did they post?</p>
 
 <ButtonsMenu

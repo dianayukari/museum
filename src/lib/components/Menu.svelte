@@ -1,7 +1,10 @@
+<script lang="ts">
+    import { base } from '$app/paths';
+</script>
 
 <div class="menu">
   <div class="left-spacer"></div>
-  <h1 class="title"><a href="/"> The social museum</a></h1>
+  <h1 class="title"><a href="{base}/"> The social museum</a></h1>
   <a class="protocol" href="https://docs.google.com/document/d/179_LOzVvq4IH9WjDdiJvk2bT6fvvuLKxquMQifcGMxY/edit?tab=t.0"> Research Protocol</a>
 </div>
 <hr>
