@@ -76,10 +76,13 @@
 
 	@media (max-width:600px) {
 
+		.gallery {
+			width: 50%;
+		}
 
         img {
-            max-width: 55px;
-            max-height: 55px;
+            max-width: 90px;
+			margin: 2px;
         }
 
     }
