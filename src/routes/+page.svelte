@@ -10,7 +10,7 @@
 	<h1>How do museums and people portray the space in social media?</h1>
 	<div class="museum-list">
 		{#each museums as museum}
-			<a href="{base}/{museum.id}">
+			<a href="{base}/{museum.id}/">
 				<button class="museum">
 					<p class="museum-name">{museum.name}</p>
 					<p class="location">{museum.location}</p>
