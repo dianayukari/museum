@@ -7,12 +7,9 @@ const config = {
 
 	kit: {
 		appDir: 'app',
-		adapter: adapter({
-			fallback: '404.html'
-		}),
+		adapter: adapter(),
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? '/museum' : '',
-			relative: false
 		}
 	}
 };

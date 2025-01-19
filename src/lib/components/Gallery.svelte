@@ -32,7 +32,7 @@
 			<img
 				class="gallery-image"
 				src={image.src}
-				alt="tagged image"
+				alt="{image.type} image"
 				loading="lazy"
 				class:highlighted={isHighlighted(image)}
 				on:click={() => handleImageClick(image.link)}

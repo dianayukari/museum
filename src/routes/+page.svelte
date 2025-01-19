@@ -8,6 +8,7 @@
 
 <div class="mainContainer">
 	<h1>How do museums and people portray the space in social media?</h1>
+	<p class="choiceLegend">choose a museum to explore</p>
 	<div class="museum-list">
 		{#each museums as museum}
 			<a href="{base}/{museum.id}/">
@@ -24,7 +25,7 @@
 	h1 {
 		text-align: center;
 		font-size: 34px;
-		margin: 25% 5%;
+		margin: 20% 5%;
 	}
 
 	.mainContainer {
@@ -33,6 +34,12 @@
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 50px;
+	}
+
+	.choiceLegend {
+		font-size: 14px;
+		font-weight: bold;
+		color: #7D7D7D;
 	}
 
 	.museum-list {
