@@ -22,7 +22,10 @@
 			return image.category === selectedCategory && image.subcategory2 === selectedSubcategory2;
 		}
 		return image.category === selectedCategory;
+
 	}
+
+
 </script>
 
 <div class="gallery">
@@ -35,6 +38,7 @@
 				alt="{image.type} image"
 				loading="lazy"
 				class:highlighted={isHighlighted(image)}
+				class:notHighlighted={!isHighlighted(image) && selectedCategory}
 				on:click={() => handleImageClick(image.link)}
 				on:mouseover={() => {
 					hoverInfo = image.date;
@@ -72,6 +76,10 @@
 
 	img.highlighted {
 		border: 4px solid #1A068A;
+	}
+
+	img.notHighlighted {
+		opacity: 0.3;
 	}
 
 	@media (max-width:600px) {

@@ -102,7 +102,7 @@
 				</button>
                 </div>
                 <div class="subcategoriesContainer">
-				<span class="arrow">&#8594;</span>
+				<!-- <span class="arrow">&#8594;</span> -->
 				<div class="subcategories">
 					{#each subcategory as sub}
 						<button

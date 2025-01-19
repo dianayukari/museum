@@ -31,7 +31,7 @@
 		},
 		{
 			category: 'No people at all?',
-			subcategory: ['Indoor gallery?', 'Outdoor setting?'],
+			// subcategory: [''],
 			subcategory2: []
 		}
 	];
