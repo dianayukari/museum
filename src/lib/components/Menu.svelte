@@ -3,8 +3,9 @@
 </script>
 
 <div class="menu">
-  <div class="left-spacer"></div>
   <h1 class="title"><a href="{base}/"> The social museum</a></h1>
+  <div class="left-spacer"></div>
+  <a class="protocol" href="{base}/captured">Captured today</a>
   <a class="protocol" href="https://docs.google.com/document/d/179_LOzVvq4IH9WjDdiJvk2bT6fvvuLKxquMQifcGMxY/edit?tab=t.0"> Research Protocol</a>
 </div>
 <hr>
@@ -30,7 +31,7 @@ h1 {
 
 .title {
 flex: 2;  
-text-align: center;
+text-align: left;
 }
 
 h1 {
@@ -41,7 +42,6 @@ h1 {
 .protocol {
   flex: 1;
   font-size: 14px;
-  text-align: right;
 }
 
 hr {
@@ -64,6 +64,11 @@ hr {
 
     .title {
       text-align: left;
+      font-size: 18px;
+    }
+
+    .protocol {
+      margin-left: 15px;
     }
 
   }

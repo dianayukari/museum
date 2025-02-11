@@ -21,6 +21,8 @@ export function load({ params }) {
 	const sortedTaggedImages = museumImageData.filter((d) => d.type == 'tagged').sort(sortByOrder);
 	const sortedPostedImages = museumImageData.filter((d) => d.type == 'posted').sort(sortByOrder);
 
+	
+
 	return {
 		museum,
 		taggedImages: sortedTaggedImages,

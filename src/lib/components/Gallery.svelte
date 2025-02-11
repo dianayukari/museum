@@ -52,7 +52,7 @@
 			<Tooltip data={hoverInfo} />
 		{/if}
 	{:else}
-		<p>No tagged images</p>
+		<p>No images</p>
 	{/if}
 </div>
 
@@ -78,9 +78,9 @@
 		border: 4px solid #1A068A;
 	}
 
-	img.notHighlighted {
+	/* img.notHighlighted {
 		opacity: 0.3;
-	}
+	} */
 
 	@media (max-width:600px) {
 
