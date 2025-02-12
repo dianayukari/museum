@@ -1,5 +1,6 @@
 <script>
     import Tooltip from '$lib/components/Tooltip.svelte';
+	import { mode } from 'd3';
 	import { onMount } from 'svelte';
 
     export let data
@@ -37,36 +38,61 @@
 		}
 	}
 
+    async function fetchLatestImages() {
+        try {
+            const response = await fetch('https://storage.googleapis.com/storage/v1/b/social-museum/o?prefix=captured/', 
+				{
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+			);
+
+            if (!response.ok) throw new Error('Failed to fetch latest images');
+
+			const data = await response.json();
+
+			images = data.items
+				.filter((file) => file.name.endsWith('.jpg'))
+				.map((item) => ({
+					src: `https://storage.googleapis.com/social-museum/${item.name}`,
+					type: 'captured',
+					link: `https://storage.googleapis.com/social-museum/${item.name}`,
+					date: new Date(item.timeCreated).toLocaleDateString()
+				}));
+
+			console.log(images);
+
+			loadMoreImages();
+
+        } catch (error) {
+            console.error('Error updating images:', error);
+        }
+    }
+
+
 	onMount(async () => {
-		loadMoreImages();
+		fetchLatestImages();
 
 		window.addEventListener('scroll', handleScroll);
 
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
 
+
 </script>
 <svelte:window on:scroll={handleScroll} />
 <div class="gallery">
-	{#if images.length > 0}
-		{#each images as image}
+	{#if displayedImages.length > 0}
+		{#each displayedImages as image}
 			<img
 				class="gallery-image"
 				src={image.src}
 				alt="{image.type} image"
 				loading="lazy"
 				on:click={() => handleImageClick(image.link)}
-				on:mouseover={() => {
-					hoverInfo = image.date;
-					isHovered = true;
-				}}
-				on:mouseleave={() => (isHovered = false)}
 			/>
 		{/each}
-
-        {#if isHovered}
-			<Tooltip data={hoverInfo} />
-		{/if}
 
 	{:else}
 		<p>No images</p>
