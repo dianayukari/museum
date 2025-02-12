@@ -1,47 +1,52 @@
 <script>
+    import Tooltip from '$lib/components/Tooltip.svelte';
 	import { onMount } from 'svelte';
-    import Gallery from '$lib/components/Gallery.svelte';
-
 
     export let data
 
     let images = data.images
 
     let displayedImages = [];
-    const imagesPerLoad = 30;
+    const imagesPerLoad = 15;
     let loading = false;
+    let hoverInfo = [];
+	let isHovered = false;
 
-    // function loadMoreImages() {
-	// 	if (loading) return;
-	// 	loading = true;
+    function handleImageClick(link) {
+		window.open(link, '_blank');
+	}
 
-	// 	const newImages = data.slice(
-	// 		displayedImages.length,
-	// 		displayedImages.length + imagesPerLoad
-	// 	);
+    function loadMoreImages() {
+		if (loading) return;
+		loading = true;
 
-	// 	displayedImages = [...displayedImages, ...newImages];
+		const newImages = images.slice(
+			displayedImages.length,
+			displayedImages.length + imagesPerLoad
+		);
 
-	// 	loading = false;
-	// }
+		displayedImages = [...displayedImages, ...newImages];
 
-	// function handleScroll() {
-	// 	const bottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 500;
-	// 	if (bottom) {
-	// 		loadMoreImages();
-	// 	}
-	// }
+		loading = false;
+	}
 
-	// onMount(async () => {
-	// 	loadMoreImages();
+	function handleScroll() {
+		const bottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 500;
+		if (bottom) {
+			loadMoreImages();
+		}
+	}
 
-	// 	window.addEventListener('scroll', handleScroll);
+	onMount(async () => {
+		loadMoreImages();
 
-	// 	return () => window.removeEventListener('scroll', handleScroll);
-	// });
+		window.addEventListener('scroll', handleScroll);
+
+		return () => window.removeEventListener('scroll', handleScroll);
+	});
 
 </script>
-
+<svelte:window on:scroll={handleScroll} />
 <div class="gallery">
 	{#if images.length > 0}
 		{#each images as image}
@@ -59,6 +64,10 @@
 			/>
 		{/each}
 
+        {#if isHovered}
+			<Tooltip data={hoverInfo} />
+		{/if}
+
 	{:else}
 		<p>No images</p>
 	{/if}
@@ -67,7 +76,7 @@
 <style>
 
 .gallery {
-    margin: 30px 20px
+    margin: 1rem
 }
 
 img {
