@@ -8,7 +8,7 @@
     let images = data.images
 
     let displayedImages = [];
-    const imagesPerLoad = 15;
+    const imagesPerLoad = 30;
     let loading = false;
     let hoverInfo = [];
 	let isHovered = false;
@@ -60,8 +60,6 @@
 					link: `https://storage.googleapis.com/social-museum/${item.name}`,
 					date: new Date(item.timeCreated).toLocaleDateString()
 				}));
-
-			console.log(images);
 
 			loadMoreImages();
 

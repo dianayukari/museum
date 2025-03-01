@@ -96,17 +96,17 @@
 
 <svelte:window on:scroll={handleScroll} />
 <div class="top-container">
-<p class="museum-name"><span class="back-arrow"><a href="{base}/">&#10229;</a></span>@{museum}</p>
-<p class="title-page">What did they post?</p>
+	<p class="museum-name"><span class="back-arrow"><a href="{base}/">&#10229;</a></span>@{museum}</p>
+	<p class="title-page">What did they post?</p>
 
-<ButtonsMenu
-	{categories}
-	{imageCounts}
-	currentPage={museum}
-	bind:selectedCategory
-	bind:selectedSubcategory
-	bind:selectedSubcategory2
-/>
+	<ButtonsMenu
+		{categories}
+		{imageCounts}
+		currentPage={museum}
+		bind:selectedCategory
+		bind:selectedSubcategory
+		bind:selectedSubcategory2
+	/>
 
 </div>
 

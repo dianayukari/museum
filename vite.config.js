@@ -3,5 +3,10 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
-	base: '/'
+	base: '/',
+	server: {
+		fs: {
+			allow: ['static'],
+		},
+	}
 });

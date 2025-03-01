@@ -3,10 +3,9 @@
 	export let images = [];
     export let title = '';
     export let selectedCategory = [];
-    export let selectedSubcategory = [];
-    export let selectedSubcategory2 = [];
 
-	let hoverInfo = [];
+	let hoverPlace = [];
+	let hoverPosition = [];
 	let isHovered = false;
 
 	function handleImageClick(link) {
@@ -15,12 +14,6 @@
 
 	function isHighlighted(image) {
 		if (!selectedCategory) return false;
-		if (selectedSubcategory) {
-			return image.category === selectedCategory && image.subcategory === selectedSubcategory;
-		}
-		if (selectedSubcategory2) {
-			return image.category === selectedCategory && image.subcategory2 === selectedSubcategory2;
-		}
 		return image.category === selectedCategory;
 
 	}
@@ -41,7 +34,8 @@
 				class:notHighlighted={!isHighlighted(image) && selectedCategory}
 				on:click={() => handleImageClick(image.link)}
 				on:mouseover={() => {
-					hoverInfo = image.date;
+					hoverPlace = image.museum;
+					hoverPosition = image.category;
 					isHovered = true;
 				}}
 				on:mouseleave={() => (isHovered = false)}
@@ -49,7 +43,7 @@
 		{/each}
 
 		{#if isHovered}
-			<Tooltip data={hoverInfo} />
+			<Tooltip place={hoverPlace} position={hoverPosition}/>
 		{/if}
 	{:else}
 		<p>No images</p>
@@ -57,36 +51,33 @@
 </div>
 
 <style>
-    	.gallery-title {
+	.gallery-title {
 		text-align: center;
 		font-size: 16px
 	}
 
 	.gallery {
-		width: 40%;
+		width: 100%;
+		/* text-align: center; */
 	}
 
 	img {
-		max-width: 100px;
-		max-height: 100px;
+		max-width: 150px;
+		max-height: 150px;
 		margin: 5px;
 		cursor: pointer;
 	}
 
 
 	img.highlighted {
-		border: 4px solid #1A068A;
+		border: 4px solid #8827FF;
 	}
 
-	/* img.notHighlighted {
+	img.notHighlighted {
 		opacity: 0.3;
-	} */
+	}
 
 	@media (max-width:600px) {
-
-		.gallery {
-			width: 50%;
-		}
 
         img {
             max-width: 80px;

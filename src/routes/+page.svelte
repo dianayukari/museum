@@ -1,5 +1,4 @@
 <script>
-	import museums from '$lib/data/museums.json';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 
@@ -7,25 +6,33 @@
 </script>
 
 <div class="mainContainer">
-	<h1>How do museums and people portray the space in social media?</h1>
-	<p class="choiceLegend">choose a museum to explore</p>
-	<div class="museum-list">
-		{#each museums as museum}
-			<a href="{base}/{museum.id}/">
-				<button class="museum">
-					<p class="museum-name">{museum.name}</p>
-					<p class="location">{museum.location}</p>
-				</button>
-			</a>
-		{/each}
+	<!-- <video class="video-player" autoplay muted loop>
+		<source src="static/media/video.webm" type="video/webm">
+	</video> -->
+	<div class="video-player">
+		<iframe src="https://player.vimeo.com/video/1061601049?autoplay=1&muted=1" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="The social museum"></iframe>
+	</div>
+	<div class="content">
+		<p class="legend">This is the result of a research on how people interact with artwork in photos shared on Instagram, revealing the performative nature of museum visits</p>
+		<div class="btn-container">
+				<a href="{base}/images/">
+					<button class="btn">
+						<p class="btn-p">Explore the images</p>
+					</button>
+				</a>
+				<a href="{base}/protocol/">
+					<button class="btn">
+						<p class="btn-p">Behind the research</p>
+					</button>
+				</a>
+		</div>
 	</div>
 </div>
 
 <style>
-	h1 {
-		text-align: center;
-		font-size: 34px;
-		margin: 20% 5%;
+	.video-player {
+		margin-top: 0;
+		height: 100vh;
 	}
 
 	.mainContainer {
@@ -33,51 +40,39 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 50px;
+		width: 100vw;
+		height: 80vh;
+		overflow: hidden;
 	}
 
-	.choiceLegend {
-		font-size: 14px;
-		font-weight: bold;
-		color: #7D7D7D;
+	.content {
+		width: 90%;
+		position: fixed;
+		margin-top: 55vh;
+		font-weight: 300;
 	}
 
-	.museum-list {
-		display: flex;
-		align-items: center;
-		list-style-type: none;
-		flex-wrap: wrap;
-		justify-content: center;
+	.legend {
+		width: 40%;
+		color: #fcfcfa;
+		font-weight: 500;
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 	}
 
-	.museum {
-		margin: 1rem;
-	}
-
-	.museum-name {
-		margin-bottom: 3px;
-	}
-
-	.location {
-		font-size: 12px;
-		margin-top: 0;
-	}
-
-	button {
-		font-family: 'InputMono';
+	.btn {
 		font-size: 16px;
 		padding: 0 12px;
 		background-color: #fcfcfa;
 		border: solid 2px #101010;
-		margin: 6px;
 		color: #101010;
 		border-radius: 3px;
 		cursor: pointer;
+		font-weight: 500;
 	}
 
-	button:hover {
-		border: solid 2px #1A068A;
-		color: #1A068A;
+	.btn:hover {
+		border: solid 2px #8827FF;
+		color: #8827FF;
 	}
 	
 
