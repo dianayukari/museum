@@ -1,4 +1,8 @@
 
+<script>
+  import { base } from '$app/paths';
+</script>
+
 <div class="content-container">
 
     <h1>How do museums and people portray the museum space in social media?</h1>
@@ -18,7 +22,7 @@
         We explored Instagram feeds, analyzing photos that tagged various museums as well as images from the museums' official profiles. Our selection of museums was based on the article. <a href="https://en.wikipedia.org/wiki/List_of_most-visited_museums" target="_blank"> List of most-visited museums by region.</a> We filtered this list to focus on modern and contemporary art museums, as we believed that art provides more opportunities for interaction. A notable limitation in our research is the absence of data on African museums, which we consider relevant.
     </p>
     
-    <img src="/static/media/screen1.png" alt="Screenshots of instagram museum profiles">
+    <img src="{base}/media/screen1.png" alt="Screenshots of instagram museum profiles">
     
     <p class="description">
         Screenshots from Instagram.
@@ -30,7 +34,7 @@
         To gather images from the museums' profiles, we utilized <a href="https://github.com/medialab/minet/blob/master/docs/cli.md" target="_blank"> “minet”</a> for scraping pictures and developed our own scraper for tagged photos. This process yielded nearly 40,000 images for analysis.
     </p>
     
-    <img src="/static/media/screen2.png" alt="Screenshot of website">
+    <img src="{base}/media/screen2.png" alt="Screenshot of website">
     
     <p class="description">
         Screenshot from the first version of the website.
@@ -48,7 +52,7 @@
         This process generated a CSV file with columns categorized as true or false, allowing us to sort images into specific categories (e.g., people inside a gallery with art), which facilitated a more focused analysis of our research.
     </p>
     
-    <img src="/static/media/screen3.png" alt="Screenshot of csv">
+    <img src="{base}/media/screen3.png" alt="Screenshot of csv">
     
     <p class="description">
         Screenshot of the CSV file.
@@ -72,7 +76,7 @@
     
     <br>
     
-    <img src="/static/media/screen4.png" alt="Bar chart">
+    <img src="{base}/media/screen4.png" alt="Bar chart">
     
     <p class="description">
         Bar chart showing the distribution of visitor poses in museum settings.
@@ -94,7 +98,7 @@
         To create this video, we compiled all tagged images and categorized them based on visitor positioning: front-facing, side views, and back-facing, with further subcategories for variations in angle. Each image was manually aligned in Photoshop at 50% opacity to ensure precision—an approach we prioritized over automated solutions like Python to maintain accuracy. Once aligned, we transferred the layered composition to After Effects, where we animated the sequence in a continuous 360-degree motion. Each image was displayed at 70% opacity for half a second, with the pacing adjusted to align seamlessly with the audio. The final result is a dynamic visualization of the patterns we uncovered, inviting viewers to immerse themselves in the ways people present themselves in museum spaces.
     </p>
     
-    <img src="/static/media/screen5.png" alt="Screenshot of csv">
+    <img src="{base}/media/screen5.png" alt="Screenshot of csv">
     
     <p class="description">
         Screenshot from Photoshop's working progress.
@@ -110,7 +114,7 @@
     
     <br>
     
-    <img src="/static/media/screen7.png" alt="creenshots of experience">
+    <img src="{base}/media/screen7.png" alt="creenshots of experience">
     
     <p class="description">
         Image of the screen during the exhibition.

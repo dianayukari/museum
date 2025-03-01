@@ -7,11 +7,11 @@
 <div class="menu">
   <h1 class="title"><a href="{base}/"> The Social Museum</a></h1>
    <div>
-    <a class="images" href="{base}/images" class:active={$page.url.pathname === base + '/images/'}>
+    <a class="images" href="{base}/filterimages/" class:active={$page.url.pathname === base + '/filterimages/'}>
       Explore the images</a>
-    <a class="protocol" href="{base}/protocol" class:active={$page.url.pathname === base + '/protocol/'}> 
+    <a class="protocol" href="{base}/protocol/" class:active={$page.url.pathname === base + '/protocol/'}> 
       Behind the research</a>
-    <a class="captured" href="{base}/captured" class:active={$page.url.pathname === base + '/captured/'}>
+    <a class="captured" href="{base}/captured/" class:active={$page.url.pathname === base + '/captured/'}>
       Captured today</a>
   </div>
 </div>
