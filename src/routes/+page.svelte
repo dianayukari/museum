@@ -15,7 +15,7 @@
 		<iframe src="https://player.vimeo.com/video/1061617782?autoplay=1&muted=1" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="the social museum"></iframe>
 	</div>
 	<div class="content">
-		<p class="legend">This is the result of a research on how people interact with artwork in photos shared on Instagram, <br>revealing the performative nature of museum visits</p>
+		<p class="legend">This is the result of a research on how people interact with artwork in photos shared on Instagram, revealing the performative nature of museum visits</p>
 		<div class="btn-container">
 				<a href="{base}/filterimages/">
 					<button class="btn">
@@ -78,6 +78,14 @@
 	.btn:hover {
 		border: solid 2px #8827FF;
 		color: #8827FF;
+	}
+
+	@media (max-width: 600px) {
+
+		.content {
+			margin-top: 20vh;
+		}
+
 	}
 	
 

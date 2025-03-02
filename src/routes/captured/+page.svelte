@@ -8,7 +8,7 @@
     let images = data.images
 
     let displayedImages = [];
-    const imagesPerLoad = 30;
+    const imagesPerLoad = 50;
     let loading = false;
     let hoverInfo = [];
 	let isHovered = false;

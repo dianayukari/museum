@@ -55,7 +55,7 @@
 		padding: 8px 10px;
         background-color: #FCFCFA;
         border: solid 2px #101010;
-        margin: 0 10px 10px 0;
+        margin: 0 10px 30px 0;
         color: #101010;
         border-radius: 3px;
 	}

@@ -87,7 +87,7 @@
 <style>
 
     .title {
-        margin: 30px 20px 0 1rem;
+        margin: 20px 20px 10px 1rem;
     }
 
     .filter-container {
@@ -102,7 +102,7 @@
     @media (max-width: 600px) {
 
         .title {
-            margin: 30px 10px 0 10px;
+            margin: 20px 10px 0 10px;
         }
 
         .filter-container {

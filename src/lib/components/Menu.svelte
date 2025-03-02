@@ -62,18 +62,18 @@ a:hover {
   color: #8827FF;
 }
 
-	@media (max-width:500px) {
+@media (max-width:500px) {
 
-    .menu {
-      flex-wrap: wrap;
-    }
-
-    .title {
-      text-align: left;
-      font-size: 18px;
-      margin-right: 20px;
-    }
-
+  .menu {
+    flex-wrap: wrap;
   }
+
+  .title {
+    text-align: left;
+    font-size: 24px;
+    margin: 20px 20px 10px auto;
+  }
+
+}
 
 </style>
