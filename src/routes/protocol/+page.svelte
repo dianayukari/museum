@@ -20,11 +20,11 @@
 
 	<p>
 		We explored Instagram feeds, analyzing photos that tagged various museums as well as images from
-		the museums' official profiles. Our selection of museums was based on the article.
+		the museums' official profiles. Our selection of museums was based on the article
 		<a href="https://en.wikipedia.org/wiki/List_of_most-visited_museums" target="_blank">
-			List of most-visited museums by region.</a
-		>
-		We filtered this list to focus on modern and contemporary art museums, as we believed that art provides
+			List of most-visited museums by region
+        </a>.
+		We filtered this list to focus on modern and contemporary art museums, as we believed that modern art provides
 		more opportunities for interaction. A notable limitation in our research is the absence of data on
 		African museums, which we consider relevant.
 	</p>
@@ -47,14 +47,14 @@
 	</figure>
 
 	<p>
-		Subsequently, we employed OpenAI’s GPT to classify the images and streamline our analysis. The
+		Later, we employed OpenAI’s GPT to classify the images and streamline our analysis. The
 		classification criteria included the presence of individuals (either one or multiple), whether
 		they were painted or drawn representations, the percentage of space they occupied in the image,
 		and whether the photo was taken inside a gallery or outside a room featuring artwork. After
 		experimenting with seven different prompts, we achieved satisfactory results and ultimately
 		opted to use Gemini instead of GPT due to budget constraints. Our final prompt was as follows:
 	</p>
-	<p>
+	<p><i>
 		“Consider for all questions: 1. artwork as paintings or drawings or installations or sculptures
 		2. real human as a person that is not a drawn or painted representation (examine skin texture,
 		light behavior, eye reflections, and overall realism of features) and 3. painted human as either
@@ -65,7 +65,7 @@
 		this picture? Is the picture taken inside a room? Are there real humans inside an art gallery?
 		When there’s a real person in the picture, what percentage of the space in the picture does it
 		occupy?”
-	</p>
+        </i></p>
 	<p>
 		This process generated a CSV file with columns categorized as true or false, allowing us to sort
 		images into specific categories (e.g., people inside a gallery with art), which facilitated a
@@ -82,21 +82,21 @@
 		Upon further reflection, we determined that our primary interest lay in examining how
 		individuals behave within gallery settings and how they present themselves in relation to
 		artwork. We sought to ascertain whether these behaviors were consistent across museums
-		globally–a hypothesis that proved accurate. We filtered images to include only those featuring
+		globally—a hypothesis that proved accurate. We filtered images to include only those featuring
 		people taken inside galleries.
 	</p>
 	<p>
-		While our initial results were promising, they were not flawless; thus, we manually reviewed
+		While our initial results were promising, they were not flawless; therefore, we manually reviewed
 		each of the 2,251 pictures fitting this description to correct any misclassifications made by
 		the AI.
 	</p>
 	<p>
 		Once we had accurately filtered images depicting people in gallery settings, we proceeded to
-		analyze their poses while taking pictures for Instagram. For this analysis, we utilized Python’s
-		“MediaPipe” [add link] to map their positions. Contrary to our expectations, we discovered that
+		analyze their poses while taking pictures for Instagram. For this analysis, we utilized Google’s
+		<a href="https://github.com/google-ai-edge/mediapipe" target="_blank">“MediaPipe”</a> to map their positions. Contrary to our expectations, we discovered that
 		most individuals did not adopt extravagant poses in museums; instead, we could categorize their
-		stances into five simple types: side, back, front, sitting, and other. The distribution of these
-		poses was as follows:
+		stances into five simple types: giving their back to the artwork, looking at the artwork, sideways, sitting, and unusual positions. 
+        The distribution of these poses was as follows:
 	</p>
 
 	<figure>
@@ -109,12 +109,12 @@
 	<p>
 		For the installation, we aimed to immerse visitors in our research and prompt them to question
 		various aspects of museum interactions in the age of social media. We wanted to provoke thoughts
-		such as: "How does the presence of a camera alter our engagement with artwork? Are we truly
+		such as: <i>"How does the presence of a camera alter our engagement with artwork? Are we truly
 		interacting with the art, or are we more focused on crafting the perfect social media post? What
 		does it signify when we face the camera instead of the artwork? Is this a performance for an
 		audience, or does it represent a deeper connection to our self-image in relation to the art?
 		When we turn our backs to the artwork, are we dismissing it, or engaging with the space in a
-		different way?"
+		different way?"</i>
 	</p>
 	<p>
 		With these objectives in mind, we decided to begin the installation with a video introduction
@@ -124,12 +124,14 @@
 		To create this video, we compiled all tagged images and categorized them based on visitor
 		positioning: front-facing, side views, and back-facing, with further subcategories for
 		variations in angle. Each image was manually aligned in Photoshop at 50% opacity to ensure
-		precision—an approach we prioritized over automated solutions like Python to maintain accuracy.
+		precision—an approach we prioritized over automated solutions to maintain accuracy.
 		Once aligned, we transferred the layered composition to After Effects, where we animated the
 		sequence in a continuous 360-degree motion. Each image was displayed at 70% opacity for half a
 		second, with the pacing adjusted to align seamlessly with the audio. The final result is a
 		dynamic visualization of the patterns we uncovered, inviting viewers to immerse themselves in
-		the ways people present themselves in museum spaces.
+		the ways people present themselves in museum spaces. The audio itself, a voiceover describing 
+        our most pressing questions on the topic, was made by OpenAi's 
+         <a href="https://github.com/openai/whisper" target="_blank">"Whisper"</a>.
 	</p>
 
 	<figure>
@@ -172,7 +174,7 @@
 		This interactive approach allows visitors to engage with our research findings and also to
 		become active participants in the ongoing dialogue about social media's impact on museum
 		experiences. By seeing themselves reflected in the context of our study, visitors are encouraged
-		to critically examine their own behaviors and motivations when interacting with art in public
+		to critically examine their own behaviors and motivations when interacting with art in gallery
 		spaces.
 	</p>
 </div>
@@ -196,7 +198,7 @@
 		font-size: 36px;
 		line-height: 106%;
 		color: #222;
-		margin-bottom: 8px;
+        margin: 60px 0 10px 0;
 		width: 90%;
 	}
 
@@ -244,6 +246,7 @@
 
 	a {
 		color: #333;
+        text-decoration: underline;
 	}
 
 	a:hover {
