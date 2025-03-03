@@ -1,40 +1,12 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="../favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link href="../app/immutable/assets/0.C6nMA-Ho.css" rel="stylesheet">
-		<link href="../app/immutable/assets/5.B8YDq23a.css" rel="stylesheet">
-		<link rel="modulepreload" href="../app/immutable/entry/start.L_ukNix_.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/entry.Dm_ruGNc.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/runtime.CuEH_eaS.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/paths.COABjCfs.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/index-client.HV5y0lW-.js">
-		<link rel="modulepreload" href="../app/immutable/entry/app.YTL4RVCL.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/render.DYYjuPAP.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/events.ByYqDUyK.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/disclose-version.CjieH5zv.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/props.BEVo-pAd.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/store.CbnHUZlP.js">
-		<link rel="modulepreload" href="../app/immutable/nodes/0.fFLFLpla.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/legacy.0kSp2tK0.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/attributes.fxCn_VSR.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/class.Bvena8yX.js">
-		<link rel="modulepreload" href="../app/immutable/chunks/lifecycle.B7sIu-hY.js">
-		<link rel="modulepreload" href="../app/immutable/nodes/5.D-48ttIw.js">
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[--><!----><div class="menu svelte-1ihx47c"><h1 class="title svelte-1ihx47c"><a href="../" class="svelte-1ihx47c">The Social Museum</a></h1> <div><a class="images svelte-1ihx47c " href="../filterimages/">Explore the images</a> <a class="protocol svelte-1ihx47c " href="../protocol/">Behind the research</a> <a class="captured svelte-1ihx47c " href="../captured/">Captured today</a></div></div> <hr class="svelte-1ihx47c"><!----> <!----><!----><div class="content-container svelte-3fugmc"><h1 class="svelte-3fugmc">How do museums and people portray the museum space in social media?</h1> <p class="names svelte-3fugmc">Diana Yukari, Kosara Keskinova</p> <p class="date svelte-3fugmc">March 5, 2025</p> <p class="svelte-3fugmc"><strong>The Social Museum</strong> explores how people interact with artworks in photos shared on
+import{a as k,t as x}from"../chunks/disclose-version.CjieH5zv.js";import"../chunks/legacy.0kSp2tK0.js";import{aa as _,s as i,l as t,ab as e,m as s}from"../chunks/runtime.CuEH_eaS.js";import{s as a}from"../chunks/attributes.fxCn_VSR.js";import{b as o}from"../chunks/paths.COABjCfs.js";var T=x(`<div class="content-container svelte-3fugmc"><h1 class="svelte-3fugmc">How do museums and people portray the museum space in social media?</h1> <p class="names svelte-3fugmc">Diana Yukari, Kosara Keskinova</p> <p class="date svelte-3fugmc">March 5, 2025</p> <p class="svelte-3fugmc"><strong>The Social Museum</strong> explores how people interact with artworks in photos shared on
 		Instagram, uncovering the performative side of museum visits. Are visitors truly engaging with the
 		art, or are they performing in front of the camera to have a curated presence for social media? What
 		defines engagement in this context?</p> <h2 class="svelte-3fugmc">Scraping data</h2> <p class="svelte-3fugmc">We explored Instagram feeds, analyzing photos that tagged various museums as well as images from
 		the museums' official profiles. Our selection of museums was based on the article <a href="https://en.wikipedia.org/wiki/List_of_most-visited_museums" target="_blank" class="svelte-3fugmc">List of most-visited museums by region</a>.
 		We filtered this list to focus on modern and contemporary art museums, as we believed that modern art provides
 		more opportunities for interaction. A notable limitation in our research is the absence of data on
-		African museums, which we consider relevant.</p> <figure><img src="../media/screen1.png" alt="Screenshots of instagram museum profiles" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshots from Instagram</figcaption></figure> <p class="svelte-3fugmc">To gather images from the museums' profiles, we utilized <a href="https://github.com/medialab/minet/blob/master/docs/cli.md" target="_blank" class="svelte-3fugmc">“minet”</a> for scraping pictures and developed our own scraper for tagged photos. This process yielded nearly
-		40,000 images for analysis.</p> <figure><img src="../media/screen2.png" alt="Screenshot of website" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshot from the first version of the website</figcaption></figure> <p class="svelte-3fugmc">Later, we employed OpenAI’s GPT to classify the images and streamline our analysis. The
+		African museums, which we consider relevant.</p> <figure><img alt="Screenshots of instagram museum profiles" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshots from Instagram</figcaption></figure> <p class="svelte-3fugmc">To gather images from the museums' profiles, we utilized <a href="https://github.com/medialab/minet/blob/master/docs/cli.md" target="_blank" class="svelte-3fugmc">“minet”</a> for scraping pictures and developed our own scraper for tagged photos. This process yielded nearly
+		40,000 images for analysis.</p> <figure><img alt="Screenshot of website" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshot from the first version of the website</figcaption></figure> <p class="svelte-3fugmc">Later, we employed OpenAI’s GPT to classify the images and streamline our analysis. The
 		classification criteria included the presence of individuals (either one or multiple), whether
 		they were painted or drawn representations, the percentage of space they occupied in the image,
 		and whether the photo was taken inside a gallery or outside a room featuring artwork. After
@@ -50,7 +22,7 @@
 		When there’s a real person in the picture, what percentage of the space in the picture does it
 		occupy?”</i></p> <p class="svelte-3fugmc">This process generated a CSV file with columns categorized as true or false, allowing us to sort
 		images into specific categories (e.g., people inside a gallery with art), which facilitated a
-		more focused analysis of our research.</p> <figure><img src="../media/screen3.png" alt="Screenshot of csv" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshot of the CSV file</figcaption></figure> <h2 class="svelte-3fugmc">Deepening the research</h2> <p class="svelte-3fugmc">Upon further reflection, we determined that our primary interest lay in examining how
+		more focused analysis of our research.</p> <figure><img alt="Screenshot of csv" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshot of the CSV file</figcaption></figure> <h2 class="svelte-3fugmc">Deepening the research</h2> <p class="svelte-3fugmc">Upon further reflection, we determined that our primary interest lay in examining how
 		individuals behave within gallery settings and how they present themselves in relation to
 		artwork. We sought to ascertain whether these behaviors were consistent across museums
 		globally—a hypothesis that proved accurate. We filtered images to include only those featuring
@@ -60,7 +32,7 @@
 		analyze their poses while taking pictures for Instagram. For this analysis, we utilized Google’s <a href="https://github.com/google-ai-edge/mediapipe" target="_blank" class="svelte-3fugmc">“MediaPipe”</a> to map their positions. Contrary to our expectations, we discovered that
 		most individuals did not adopt extravagant poses in museums; instead, we could categorize their
 		stances into five simple types: giving their back to the artwork, looking at the artwork, sideways, sitting, and unusual positions. 
-        The distribution of these poses was as follows:</p> <figure><img src="../media/screen4.png" alt="Bar chart" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Bar chart showing the distribution of visitor poses in museum settings</figcaption></figure> <h2 class="svelte-3fugmc">Building the experience</h2> <p class="svelte-3fugmc">For the installation, we aimed to immerse visitors in our research and prompt them to question
+        The distribution of these poses was as follows:</p> <figure><img alt="Bar chart" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Bar chart showing the distribution of visitor poses in museum settings</figcaption></figure> <h2 class="svelte-3fugmc">Building the experience</h2> <p class="svelte-3fugmc">For the installation, we aimed to immerse visitors in our research and prompt them to question
 		various aspects of museum interactions in the age of social media. We wanted to provoke thoughts
 		such as: <i>"How does the presence of a camera alter our engagement with artwork? Are we truly
 		interacting with the art, or are we more focused on crafting the perfect social media post? What
@@ -77,14 +49,14 @@
 		second, with the pacing adjusted to align seamlessly with the audio. The final result is a
 		dynamic visualization of the patterns we uncovered, inviting viewers to immerse themselves in
 		the ways people present themselves in museum spaces. The audio itself, a voiceover describing 
-        our most pressing questions on the topic, was made by OpenAi's <a href="https://github.com/openai/whisper" target="_blank" class="svelte-3fugmc">"Whisper"</a>.</p> <figure><img src="../media/screen5.png" alt="Screenshot of csv" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshot from Photoshop's working progress</figcaption></figure> <p class="svelte-3fugmc">Following the introductory video, we sought to create an interactive experience that would
+        our most pressing questions on the topic, was made by OpenAi's <a href="https://github.com/openai/whisper" target="_blank" class="svelte-3fugmc">"Whisper"</a>.</p> <figure><img alt="Screenshot of csv" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshot from Photoshop's working progress</figcaption></figure> <p class="svelte-3fugmc">Following the introductory video, we sought to create an interactive experience that would
 		engage visitors based on their physical positioning. We implemented a camera system to detect
 		visitors' poses in real-time, categorizing them according to our established classification
 		system. This allowed us to reveal images from our research that corresponded to similar poses
 		adopted by museum-goers on social media.</p> <p class="svelte-3fugmc">At the conclusion of the experience, we prompt visitors to reflect on how they might behave in a
 		gallery space, considering the insights gained from our research. A photograph is then taken of
 		the visitor, which is displayed on a website where one can view all the images captured that day
-		and download their own picture.</p> <figure><img src="../media/screen7.png" alt="Screenshot of camera system" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshot of the camera system</figcaption></figure> <p class="svelte-3fugmc">The website also serves as a comprehensive repository of our research data. It contains all
+		and download their own picture.</p> <figure><img alt="Screenshot of camera system" class="svelte-3fugmc"> <figcaption class="svelte-3fugmc">Screenshot of the camera system</figcaption></figure> <p class="svelte-3fugmc">The website also serves as a comprehensive repository of our research data. It contains all
 		2,251 photos of people in gallery settings that we analyzed, along with filters for each pose
 		category we identified (side, back, front, sitting, and other). This allows visitors to explore
 		the full dataset and observe the patterns we discovered in our study.</p> <p class="svelte-3fugmc">Additionally, we included this detailed description of our research protocol, outlining the
@@ -94,30 +66,4 @@
 		become active participants in the ongoing dialogue about social media's impact on museum
 		experiences. By seeing themselves reflected in the context of our study, visitors are encouraged
 		to critically examine their own behaviors and motivations when interacting with art in gallery
-		spaces.</p></div> <footer><hr class="svelte-3fugmc"> <p class="footer svelte-3fugmc">2025 Project for the Design Academy Eindhoven. <br> Tutored by Studio Calibro</p></footer><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
-			
-			<script>
-				{
-					__sveltekit_bqdibi = {
-						base: new URL("..", location).pathname.slice(0, -1),
-						assets: "/museum"
-					};
-
-					const element = document.currentScript.parentElement;
-
-					Promise.all([
-						import("../app/immutable/entry/start.L_ukNix_.js"),
-						import("../app/immutable/entry/app.YTL4RVCL.js")
-					]).then(([kit, app]) => {
-						kit.start(app, element, {
-							node_ids: [0, 5],
-							data: [{"type":"data","data":null,"uses":{},"slash":"always"},null],
-							form: null,
-							error: null
-						});
-					});
-				}
-			</script>
-		</div>
-	</body>
-</html>
+		spaces.</p></div> <footer><hr class="svelte-3fugmc"> <p class="footer svelte-3fugmc">2025 Project for the Design Academy Eindhoven. <br> Tutored by Studio Calibro</p></footer>`,1);function O(u){var m=T(),p=_(m),r=i(t(p),12),d=t(r);a(d,"src",`${o??""}/media/screen1.png`),e(2),s(r);var n=i(r,4),f=t(n);a(f,"src",`${o??""}/media/screen2.png`),e(2),s(n);var c=i(n,8),v=t(c);a(v,"src",`${o??""}/media/screen3.png`),e(2),s(c);var l=i(c,10),w=t(l);a(w,"src",`${o??""}/media/screen4.png`),e(2),s(l);var h=i(l,10),y=t(h);a(y,"src",`${o??""}/media/screen5.png`),e(2),s(h);var g=i(h,6),b=t(g);a(b,"src",`${o??""}/media/screen7.png`),e(2),s(g),e(6),s(p),e(2),k(u,m)}export{O as component};
